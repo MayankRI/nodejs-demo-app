@@ -23,7 +23,7 @@ RUN npm install -g npm-check-updates \
     npm install babel-cli \
     npm install babel-preset \
     npm install babel-preset-env
-# If you are building your code for production
+# If you are building your code for production only
 RUN npm ci --only=production
 # Bundle app source
 COPY . /app
