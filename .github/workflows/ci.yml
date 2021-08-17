@@ -8,6 +8,7 @@ on:
     branches:
       - main
       - devops
+      - prod
   pull_request:
     branches:
       - main
