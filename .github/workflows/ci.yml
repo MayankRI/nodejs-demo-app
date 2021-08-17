@@ -5,9 +5,15 @@ name: CI-CD
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ devops ]
+    branches:
+      - main
+      - devops
+      - prod
   pull_request:
-    branches: [ devops ]
+    branches:
+      - main
+      - devops
+      - prod
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
   
@@ -42,7 +48,9 @@ jobs:
         run: |
           npm run build
           npm run test
-
+        env:
+          CI: true
+          
   push_to_Docker_Hub:
       # The type of runner that the job will run on
       runs-on: ubuntu-latest
@@ -82,3 +90,8 @@ jobs:
               echo "runing the docker image"
               echo "Testing the nodejs  app endpoints"
               echo ${{ steps.docker_build.outputs.digest }}
+              
+             
+             
+              
+
